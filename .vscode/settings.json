@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "type_traits": "cpp",
+        "system_error": "cpp",
+        "xiosbase": "cpp",
+        "xlocale": "cpp",
+        "xstring": "cpp",
+        "xutility": "cpp",
+        "map": "cpp",
+        "xtree": "cpp",
+        "xmemory0": "cpp",
+        "tuple": "cpp",
+        "utility": "cpp",
+        "limits": "cpp",
+        "initializer_list": "cpp",
+        "xmemory": "cpp"
+    }
+}

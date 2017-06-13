@@ -7,9 +7,9 @@
 #define MALLOC -1
 #define EMPTYSTACK -2
 
-#ifndef TYPE
+#ifndef STACK_TYPE
 #define RELOADTAG 0
-#define TYPE char
+#define STACK_TYPE char
 #else
 #ifndef RELOADTAG
 #define RELOADTAG 1
@@ -18,21 +18,21 @@
 
 typedef struct
 {
-    TYPE *base;
-    TYPE *top;
+    STACK_TYPE *base;
+    STACK_TYPE *top;
     int size;
 } Stack;
 
 Stack stack_create();
-void stack_push(Stack *, TYPE);
-TYPE stack_pop(Stack *S);
+void stack_push(Stack *, STACK_TYPE);
+STACK_TYPE stack_pop(Stack *S);
 int stack_empty(Stack);
-TYPE stack_get_top(Stack *S);
+STACK_TYPE stack_get_top(Stack *S);
 
 Stack stack_create()
 {
     Stack S;
-    S.base = (TYPE *)malloc(sizeof(TYPE) * MAX_SIZE);
+    S.base = (STACK_TYPE *)malloc(sizeof(STACK_TYPE) * MAX_SIZE);
     if (S.base == NULL)
     {
         printf("Fail to create List, storage allocation error\n");
@@ -43,12 +43,12 @@ Stack stack_create()
     return S;
 }
 
-void stack_push(Stack *S, TYPE data)
+void stack_push(Stack *S, STACK_TYPE data)
 {
     if (S->top - S->base >= S->size)
     {
         S->size += INCREASE;
-        S->base = (TYPE *)realloc(S->base, sizeof(TYPE) * S->size);
+        S->base = (STACK_TYPE *)realloc(S->base, sizeof(STACK_TYPE) * S->size);
         if (S->base == NULL)
         {
             printf("Fail to push, storage allocation error\n");
@@ -58,7 +58,7 @@ void stack_push(Stack *S, TYPE data)
     *((S->top)++) = data;
 }
 
-TYPE stack_pop(Stack *S)
+STACK_TYPE stack_pop(Stack *S)
 {
     if (stack_empty(*S))
     {
@@ -80,7 +80,7 @@ int stack_empty(Stack S)
     }
 }
 
-TYPE stack_get_top(Stack *S)
+STACK_TYPE stack_get_top(Stack *S)
 {
     return *(S->top - 1);
 }
