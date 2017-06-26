@@ -26,7 +26,7 @@ typedef struct List // 链表
 } List;
 
 /* 操作函数声明 */
-List list_create();                      // 初始化链表
+Status init_list(List *L);               // 初始化链表
 int is_empty(List L);                    // 判断链表是否为空
 Status goto_next_n_node(List *L, int n); // 将当前指针后移n位
 Node *get_next_n_node(List L, int n);    // 获取当前指针后n位的指针(当前指针不移动)
@@ -38,17 +38,19 @@ Status delete_node(List *L);             // 删除当前节点
 /* 操作函数定义 */
 
 /********************************************
-Function name:  list_create
+Function name:  init_list
 Purpose:        生成一个初始化的链表, 当前指针为空, 大小为0
-Params:         NULL
-Return:         List
+Params:
+    @List       *L:     要初始化的链表
+Return:         Status
+    SUCCESS:    操作成功
+    FAIL:       操作失败
 ********************************************/
-List list_create()
+Status init_list(List *L)
 {
-    List L;
-    L.p = NULL;
-    L.size = 0;
-    return L;
+    L->p = NULL;
+    L->size = 0;
+    return SUCCESS;
 }
 
 /********************************************

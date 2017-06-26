@@ -4,7 +4,6 @@
 #include "MST.h"    // 最小生成树算法
 
 /* 宏定义操作函数 */
-
 // 清屏
 #ifdef WIN32
 #define CLEAR system("cls")
@@ -54,22 +53,22 @@ int main()
 void show_info()
 {
     CLEAR;
-    LONG_STAR(100);
+    LONG_STAR(80);
     printf("\n");
     printf("Minimun Spanning Tree\n");
     printf("\n");
-    LONG_STAR(100);
+    LONG_STAR(80);
     printf("\n\n");
 }
 void show_command()
 {
     printf("\n\n");
-    LONG_STAR(100);
+    LONG_STAR(80);
     printf("\n");
     printf("Command:\tS(how)\t\tM(ST)\t\tE(dge)\t\tV(ex)\n");
     printf("\t\tH(elp)\t\tQ(uit)\t\tC(lear)\t\tR(erun)\n");
     printf("\n");
-    LONG_STAR(100);
+    LONG_STAR(80);
 }
 
 void init()
